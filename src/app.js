@@ -7,7 +7,7 @@ import Header from "./sections/components/header";
 import SuggestionList from "./videos/containers/suggestion-list";
 import CategoryList from "./videos/containers/category-list";
 import Movie from './screens/containers/movie'
-
+import Search from './sections/containers/search'
 
 // import { store, persistor } from "../store ";
 import { connect }  from 'react-redux';
@@ -36,8 +36,7 @@ class AppLayout extends Component {
     return (
       <Home>
         <Header />
-     
-        <Text>buscador</Text>
+        <Search />
         <CategoryList />
         <SuggestionList />
       </Home>
