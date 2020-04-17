@@ -1,17 +1,31 @@
 {
   "expo": {
-    "name": "Your App Name",
-    "icon": "./path/to/your/app-icon.png",
-    "version": "1.0.0",
-    "slug": "your-app-slug",
-    "sdkVersion": "0.0.1",
-    "ios": {
-      "bundleIdentifier": "com.yourcompany.yourappname",
-      "buildNumber": "1.0.0"
+    "name": "videoapp",
+    "slug": "videoapp",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "version": "1.0.1",
+    "sdkVersion": "37.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
     },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "android": {
-      "package": "com.yourcompany.yourappname",
+      "package": "com.payki.DiamanteAcademy",
       "versionCode": 1
-    }
+    },
+    "description": ""
   }
 }

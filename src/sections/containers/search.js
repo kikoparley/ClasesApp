@@ -8,7 +8,7 @@ class Search extends Component {
     text: "",
   };
   handleSubmit = async () => {
-  
+
     const movies = await API.searchMovie(this.state.text);
       console.log(movies);
       this.props.dispatch({
@@ -28,7 +28,6 @@ class Search extends Component {
       <TextInput
         placeholder='Busca tu película favorita'
         autoCorrent={false}
-        autoCapitalize='none'
         underlineColorAndroid='transparent'
         onSubmitEditing={this.handleSubmit}
         onChangeText={this.handleChangeText}
