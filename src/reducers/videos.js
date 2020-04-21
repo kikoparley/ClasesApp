@@ -3,19 +3,16 @@ function videos(state = {}, action) {
     case "SET_SEGGESTION_LIST": {
       return { ...state, ...action.payload };
     }
-
     case "SET_CATEGORY_LIST": {
       return { ...state, ...action.payload };
     }
-    case "SET_SELECTED_MOVIE":{
-        return{ ...state, selectedMovie: action.payload.movie }
+    case "SET_SELECTED_MOVIE": {
+      return { ...state, selectedMovie: action.payload.movie };
     }
-
     default:
       return state;
   }
 }
 
 export default videos;
-
 

@@ -44,10 +44,4 @@ class AppLayout extends Component {
   }
 }
 
-function mapStateToProps(state){
-    return{
-    selectedMovie: state.selectedMovie}
-}
-
-
-export default connect(mapStateToProps) (AppLayout);
+export default connect(null) (Home);

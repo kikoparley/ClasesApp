@@ -1,21 +1,21 @@
 import React, { Component } from "react";
 import { FlatList, Text } from "react-native";
-import Layout from "../components/suggestion-list-layout";
-import Empty from "../components/empty";
-import Separator from "../components/vertical-separator";
-import Suggestion from "../components/suggestion";
+import Layout from "../../videos/components/suggestion-list-layout";
+import Empty from "../../videos/components/empty";
+import Separator from "../../videos/components/vertical-separator";
+import Suggestion from "../../videos/components/suggestion";
 import { connect } from "react-redux";
 import { NavigationActions } from "react-navigation";
 
 function mapStateToProps(state) {
   return {
-    list: state.videos.suggestionList,
+    list: state.videos.SuggestionList
   };
 }
 
-class SuggestionList extends Component {
+class Category extends Component {
   keyExtractor = (item) => item.id.toString();
-  renderEmpty = () => <Empty text='No hay sugerencias :(' />;
+  renderEmtpy = () => <Empty text='No hay sugerencias :(' />;
   itemSeparator = () => <Separator />;
   viewMovie = (item) => {
     this.props.dispatch({
@@ -34,19 +34,17 @@ class SuggestionList extends Component {
     return (
       <Suggestion
         {...item}
-        onPress={() => {
-          this.viewMovie(item);
-        }}
+        onPress={() => { this.viewMovie(item) }}
       />
     );
   };
   render() {
     return (
-      <Layout title='Recomendado para ti'>
+      <Layout title={`${this.props.navigation.getParam('genre', 'categoria')}`}>
         <FlatList
           keyExtractor={this.keyExtractor}
           data={this.props.list}
-          ListEmptyComponent={this.renderEmpty}
+          ListEmptyComponent={this.renderEmtpy}
           ItemSeparatorComponent={this.itemSeparator}
           renderItem={this.renderItem}
         />
@@ -55,4 +53,4 @@ class SuggestionList extends Component {
   }
 }
 
-export default connect(mapStateToProps)(SuggestionList);
+export default connect(mapStateToProps)(Category);

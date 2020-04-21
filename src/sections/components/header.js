@@ -10,12 +10,13 @@ import {
 function Header(props) {
   return (
     <View>
-      <SafeAreaView>
+      <SafeAreaView style={styles.statusBar}>
         <View style={styles.container}>
-          <Image
+          <Text>Diamante School</Text>
+          {/* <Image
             source={require('../../assets/logo.png')}
             style={styles.logo}
-          />
+          /> */}
           <View style={styles.right}>
             {props.children}
           </View>
@@ -29,18 +30,22 @@ const styles = StyleSheet.create({
   logo: {
     width: 80,
     height: 26,
-    resizeMode: 'contain',
+    resizeMode: "contain",
+  },
+
+  statusBar: {
+    backgroundColor: "white",
   },
   container: {
     paddingVertical: 10,
     paddingHorizontal: 10,
-    flexDirection: 'row',
+    flexDirection: "row",
   },
   right: {
     flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'flex-end',
-  }
-})
+    flexDirection: "row",
+    justifyContent: "flex-end",
+  },
+});
 
 export default Header;
