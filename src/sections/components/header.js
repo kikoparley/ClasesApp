@@ -12,11 +12,11 @@ function Header(props) {
     <View>
       <SafeAreaView style={styles.statusBar}>
         <View style={styles.container}>
-          <Text>Diamante School</Text>
-          {/* <Image
-            source={require('../../assets/logo.png')}
+          {/* <Text>Diamante School</Text> */}
+          <Image
+            source={require('../../assets/logo2.png')}
             style={styles.logo}
-          /> */}
+          />
           <View style={styles.right}>
             {props.children}
           </View>

@@ -9,7 +9,7 @@ import { NavigationActions } from "react-navigation";
 
 function mapStateToProps(state) {
   return {
-    list: state.videos.SuggestionList
+    list: state.videos.categoryList,
   };
 }
 
@@ -34,13 +34,15 @@ class Category extends Component {
     return (
       <Suggestion
         {...item}
-        onPress={() => { this.viewMovie(item) }}
+        onPress={() => {
+          this.viewMovie(item);
+        }}
       />
     );
   };
   render() {
     return (
-      <Layout title={`${this.props.navigation.getParam('genre', 'categoria')}`}>
+      <Layout title={`${this.props.navigation.getParam("genre", "Categoria")}`}>
         <FlatList
           keyExtractor={this.keyExtractor}
           data={this.props.list}
