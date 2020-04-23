@@ -1,7 +1,15 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, StyleSheet, Image, StatusBar } from "react-native";
 
 class About extends Component {
+    componentDidMount(){
+        this.props.navigation.addListener('didFocus',() => {
+         StatusBar.setBarStyle('light-content')   
+        //  StatusBar.setBackgroundColor("white"); Android  
+        })
+
+    }
+
   render() {
     return (
       <View style={styles.container}>
@@ -13,10 +21,10 @@ class About extends Component {
           style={styles.logo}
         />
         <Text style={styles.text}>
-          Platzi Video es construido como una aplicación educativa para enseñar React Native y React Navigation
+          Diamante School es construido como una aplicación educativa para enseñar React Native y React Navigation
         </Text>
-        <Text style={styles.text}>@LeonidasEsteban</Text>
-        <Text style={styles.text}>2019</Text>
+        <Text style={styles.text}>@Alexfrnndz</Text>
+        <Text style={styles.text}>2020</Text>
       </View>
     );
   }

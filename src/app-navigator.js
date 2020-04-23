@@ -1,6 +1,7 @@
 import {
    createStackNavigator,
-    createBottomTabNavigator
+    createBottomTabNavigator,
+    createSwitchNavigator
 } from "react-navigation";
 import React from 'react';
 import Home from "./screens/containers/home";
@@ -10,6 +11,8 @@ import Header from "./sections/components/header";
 import About from './screens/containers/about'
 import Lucky from "./screens/containers/lucky";
 import Profile from "./screens/containers/profile";
+import Loading from "./screens/containers/loading";
+import Login from "./screens/containers/login";
 // import Icon from './sections/components/icon';
 //  import { Ionicons } from "@expo/vector-icons";
 import { FontAwesome } from "@expo/vector-icons";
@@ -62,9 +65,25 @@ const TabNavigator = createBottomTabNavigator(
   {
     tabBarOptions: {
       activeTintColor: "white",
-      activeBackgroundColor: "#65a721",
+      activeBackgroundColor: "#1B56D0",
     },
   }
 );
+ 
 
-export default TabNavigator;
+const SwitchNavigator = createSwitchNavigator(
+  {
+    App: TabNavigator,
+    Login: Login,
+    Loading: Loading,
+  },
+  {
+    initialRouteName: 'Loading'
+  }
+
+
+)
+
+
+
+export default SwitchNavigator;

@@ -3,11 +3,18 @@ import { View, Text, SafeAreaView, StyleSheet, Button } from "react-native";
 import { connect } from "react-redux";
 
 class Profile extends Component {
-  render() {
+    handleLogout = () => {
+        this.props.dispatch({
+            type:'REMOVE_USER',
+        })
+        this.props.navigation.navigate('Loading') //Loading o Login
+    }
+ 
+    render() {
     return (
       <SafeAreaView style={styles.container}>
-        <Text>Nombre de usuario</Text>
-        <Button title='Cerrar sesión' color='#67a52e' />
+        <Text>Usuario: {this.props.user.username}</Text>
+        <Button title='Cerrar sesión' color='#1B56D0' onPress={this.handleLogout} />
       </SafeAreaView>
     );
   }
@@ -21,4 +28,12 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Profile;
+function mapStateToProps(state) {
+    return{
+        user: state.user
+    }
+
+}
+
+
+export default connect(mapStateToProps) (Profile);
