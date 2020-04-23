@@ -1,7 +1,8 @@
 import {
    createStackNavigator,
     createBottomTabNavigator,
-    createSwitchNavigator
+    createSwitchNavigator,
+    createDrawerNavigator
 } from "react-navigation";
 import React from 'react';
 import Home from "./screens/containers/home";
@@ -13,6 +14,7 @@ import Lucky from "./screens/containers/lucky";
 import Profile from "./screens/containers/profile";
 import Loading from "./screens/containers/loading";
 import Login from "./screens/containers/login";
+import Drawer from './sections/components/drawer'
 // import Icon from './sections/components/icon';
 //  import { Ionicons } from "@expo/vector-icons";
 import { FontAwesome } from "@expo/vector-icons";
@@ -20,13 +22,17 @@ import { FontAwesome } from "@expo/vector-icons";
 const Main = createStackNavigator(
   {
     Home: Home,
-    Movie: Movie,
-    Category,
+    Movie,
   },
   {
     navigationOptions: {
       header: Header,
+      gestiresEnabled:true
     },
+    mode:'modal',
+    cardStyle:{
+        backgroundColor:'white'
+      }
   }
 );
 
@@ -37,7 +43,7 @@ const TabNavigator = createBottomTabNavigator(
       screen: Main,
       navigationOptions: {
         title: "inicio",
-        tabBarIcon: <FontAwesome name={"home"} size={24} />,
+        tabBarIcon: <FontAwesome name={"home"} size={24 }/>,
       },
     },
     About: {
@@ -70,19 +76,83 @@ const TabNavigator = createBottomTabNavigator(
   }
 );
  
+const WithModal = createStackNavigator(
+  {
+    Main: {
+      screen: TabNavigator,
+    },
+    Category,
+  },
+  {
+    mode: "modal",
+    headerMode: "none",
+    cardStyle: {
+      backgroundColor: "white",
+    },
+    navigationOptions:{
+      gesturesEnable: true,
+    }
+  }
+);
+
+
+const DrawerNavigator = createDrawerNavigator(
+  {
+    Main: {
+      screen: WithModal,
+      navigationOptions: {
+        title: "inicio",
+        tabBarIcon: <FontAwesome name={"home"} size={24} />,
+      },
+    },
+    Sobre: {
+      screen: About,
+      navigationOptions: {
+        title: "Nosotros",
+        tabBarIcon: <FontAwesome name={"building"} size={24} />,
+      },
+    },
+    suerte: {
+      screen: Lucky,
+      navigationOptions: {
+        title: "Nosotros",
+        tabBarIcon: <FontAwesome name={"search"} size={24} />,
+      },
+    },
+  },
+  {
+    drawerWidth: 200,
+    drawerBackgroundColor: "#f6f6f6",
+    contentComponent: Drawer,
+    contentOptions: {
+      activeBackgroundColor: "#7aba2f",
+      activeTintColor: "white",
+      inactiveTintColor: "#828282",
+      inactiveBackgroundColor: "white",
+      itemStyle: {
+        borderBottomWidth: 0.5,
+        borderBottomColor: "rgba(0,0,0,.05)",
+      },
+      labelStyle: {
+        marginHorizontal:20,
+      },
+      iconContainerStyle:{
+        marginHorizontal:5, 
+      }
+    },
+  }
+);
 
 const SwitchNavigator = createSwitchNavigator(
   {
-    App: TabNavigator,
+    App: DrawerNavigator,
     Login: Login,
     Loading: Loading,
   },
   {
-    initialRouteName: 'Loading'
+    initialRouteName: "Loading",
   }
-
-
-)
+);
 
 
 

@@ -2,10 +2,30 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import AppNavigator from "./app-navigator";
 import { reduxifyNavigator } from "react-navigation-redux-helpers";
+import { BackHandler } from 'react-native';
+import { NavigationActions } from 'react-navigation'
+
 
 const ReduxifyApp = reduxifyNavigator(AppNavigator, "root");
 
-class AppNavigatorWithState extends ReduxifyApp {}
+class AppNavigatorWithState extends ReduxifyApp {
+  componentDidMount() {
+    BackHandler.addEventListener("hardwareBackPress", this.OnBackPress);
+  }
+  componentWillUnmount() {
+    BackHandler.removeEventListener("hardwareBackPress", this.OnBackPress);
+  }
+  OnBackPress = () => {
+    this.props.dispatch(
+      NavigationActions.back({
+        key: "null",
+      })
+    );
+    return true;
+  };
+}
+
+
 
 function mapStateToProps(state) {
   return {
