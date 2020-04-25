@@ -32,7 +32,7 @@ class Search extends Component {
   render() {
     return (
       <TextInput
-        placeholder='Busca tu película favorita'
+        placeholder='Busca tu clase favorita'
         // autoCorrent={false}
         underlineColorAndroid='transparent'
         onSubmitEditing={this.handleSubmit}

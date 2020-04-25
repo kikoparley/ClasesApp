@@ -22,14 +22,14 @@ function suggestion (props){
               }}
             />
             <View style={styles.genre}>
-              <Text style={styles.genreText}>{props.genres[0]}</Text>
+              <Text style={styles.genreText}> {props.genres[0]}</Text>
             </View>
           </View>
 
           <View style={styles.right}>
-            <Text style={styles.title}>{props.title}</Text>
-            <Text style={styles.year}>{props.year}</Text>
-            <Text style={styles.rating}>{props.rating}</Text>
+            <Text style={styles.title}>Clase: {props.title}</Text>
+            <Text style={styles.year}>Profesor(a): {props.year}</Text>
+            <Text style={styles.rating}>Duración: {props.rating} Min.</Text>
           </View>
         </View>
       </TouchableOpacity>
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
          paddingVertical:4,
          paddingHorizontal:6,
          color:"white",
-         fontSize:11,
+         fontSize:12,
          borderRadius:5,
          overflow: 'hidden',
          alignSelf:'flex-start'

@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text, Image, StyleSheet, ScrollView } from "react-native";
-// import { WebView } from "react-native-webview";
+import { WebView } from "react-native-webview";
 
 const makeHTML = (id) => {
   return `
@@ -29,11 +29,11 @@ function Details(props) {
   return (
     <View>
       <View style={styles.top}>
-        <Text>{props.title}</Text>
+        <Text>Clase: {props.title}</Text>
       </View>
-      <View style={styles.trailer}>
-        {/* <WebView source={{ html: makeHTML(props.yt_trailer_code) }} /> */}
-      </View>
+      {/* <View style={styles.trailer}>
+        <WebView source={{ html: makeHTML(props.yt_trailer_code) }} />
+      </View> */}
       <View style={styles.bottom}>
         <View style={styles.details}>
           <Image style={styles.cover} source={{ uri: props.medium_cover_image }} />

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import { Text, View } from "react-native";
 import API from "../utils/api";
 import Home from "./screens/containers/home";
@@ -34,6 +33,7 @@ class AppLayout extends Component {
     } else 
 
     return (
+
       <Home>
         <Header />
         <Search />

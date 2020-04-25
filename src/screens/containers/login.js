@@ -18,7 +18,8 @@ class Login extends Component {
     return (
       <SafeAreaView style={styles.container}>
         <View>
-          <Image source={require("../../assets/logo2.png")} style={styles.logo} />
+          <Image source={require("../../assets/logo3.jpg")} style={styles.logo} />
+          <Text style={styles.name}> DIAMANTE ACADÉMICO </Text>
           <TextInput style={styles.input} placeholder='Nombre de usuario' placeholderTextColor='white' />
           <TextInput
             style={styles.input}
@@ -43,6 +44,7 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
   },
   logo: {
+    alignSelf: "center",
     width: 200,
     height: 80,
     resizeMode: "contain",
@@ -56,6 +58,17 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     backgroundColor: "#838383",
     color: "white",
+  },
+  name: {
+    textAlign: "center",
+    marginBottom: 12,
+    fontSize: 18,
+    fontWeight: "bold",
+    width: 250,
+    height: 50,
+    paddingHorizontal: 10,
+    borderRadius: 5,
+    color: "black",
   },
   button: {
     backgroundColor: "#1B56D0",

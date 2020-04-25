@@ -43,7 +43,7 @@ class CategoryList extends Component {
 
   render() {
     return (
-      <Layout title='Categorias'>
+      <Layout title='Areas'>
         <View>
           <FlatList
             horizontal

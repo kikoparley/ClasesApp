@@ -42,7 +42,7 @@ class SuggestionList extends Component {
   };
   render() {
     return (
-      <Layout title='Recomendado para ti'>
+      <Layout title='Clases para ti'>
         <FlatList
           keyExtractor={this.keyExtractor}
           data={this.props.list}
