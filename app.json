@@ -9,6 +9,10 @@
     ],
     "version": "1.1.1",
     "sdkVersion": "37.0.0",
+    "androidStatusBar": {
+      "barStyle": "light-content",
+      "backgroundColor": "#1B56D0"
+    },
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {

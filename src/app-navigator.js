@@ -4,6 +4,7 @@ import {
     createSwitchNavigator,
     createDrawerNavigator
 } from "react-navigation";
+import { Platform, StatusBar } from "react-native";
 import React from 'react';
 import Home from "./screens/containers/home";
 import Movie from "./screens/containers/movie";
@@ -87,6 +88,7 @@ const WithModal = createStackNavigator(
     mode: "modal",
     headerMode: "none",
     cardStyle: {
+      paddingTop: Platform.OS === 'ios' ? 0 : StatusBar.currentHeight,
       backgroundColor: "white",
     },
     navigationOptions:{
@@ -140,6 +142,7 @@ const DrawerNavigator = createDrawerNavigator(
         marginHorizontal:5, 
       }
     },
+      
   }
 );
 
@@ -151,7 +154,8 @@ const SwitchNavigator = createSwitchNavigator(
   },
   {
     initialRouteName: "Loading",
-  }
+  },
+  
 );
 
 

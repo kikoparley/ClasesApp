@@ -4,7 +4,8 @@ import { View, Text, Image, StyleSheet, ActivityIndicator } from "react-native";
 function Loading(props) {
   return (
     <View style={styles.container}>
-      <Image source={require("../../assets/logo2.png")} style={styles.logo} />
+      <Text>Cargando...</Text>
+      {/* <Image source={require("../../assets/logo2.png")} style={styles.logo} /> */}
       <ActivityIndicator />
     </View>
   );

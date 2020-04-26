@@ -28,12 +28,12 @@ const makeHTML = (id) => {
 function Details(props) {
   return (
     <View>
+      <View style={styles.trailer}>
+        <WebView source={{ html: makeHTML(props.yt_trailer_code) }} />
+      </View>
       <View style={styles.top}>
         <Text>Clase: {props.title}</Text>
       </View>
-      {/* <View style={styles.trailer}>
-        <WebView source={{ html: makeHTML(props.yt_trailer_code) }} />
-      </View> */}
       <View style={styles.bottom}>
         <View style={styles.details}>
           <Image style={styles.cover} source={{ uri: props.medium_cover_image }} />

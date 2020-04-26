@@ -21,7 +21,7 @@ class About extends Component {
           style={styles.logo}
         />
         <Text style={styles.text}>
-          Diamante School es construido como una aplicación educativa para enseñar React Native y React Navigation
+          Diamante es  una aplicación educativa para enseñar desde una app
         </Text>
         <Text style={styles.text}>@Alexfrnndz</Text>
         <Text style={styles.text}>2020</Text>

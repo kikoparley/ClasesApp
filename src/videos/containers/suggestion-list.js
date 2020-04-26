@@ -6,7 +6,7 @@ import Separator from "../components/vertical-separator";
 import Suggestion from "../components/suggestion";
 import { connect } from "react-redux";
 import { NavigationActions } from "react-navigation";
-
+import Loading from '../../sections/components/loading'
 function mapStateToProps(state) {
   return {
     list: state.videos.suggestionList,
@@ -15,7 +15,7 @@ function mapStateToProps(state) {
 
 class SuggestionList extends Component {
   keyExtractor = (item) => item.id.toString();
-  renderEmpty = () => <Empty text='No hay sugerencias :(' />;
+  renderEmpty = () => <Loading />;
   itemSeparator = () => <Separator />;
   viewMovie = (item) => {
     this.props.dispatch({

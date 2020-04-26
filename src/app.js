@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Text, View } from "react-native";
 import API from "../utils/api";
 import Home from "./screens/containers/home";
-import Header from "./sections/components/header";
+// import Header from "./sections/components/header";
 import SuggestionList from "./videos/containers/suggestion-list";
 import CategoryList from "./videos/containers/category-list";
 import Movie from './screens/containers/movie'

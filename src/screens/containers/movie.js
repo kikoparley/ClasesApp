@@ -46,7 +46,7 @@ class Movie extends Component {
           opacity: this.state.opacity,
         }}>
         <MovieLayout>
-          <Player />
+          {/* <Player /> */}
           <Details {...this.props.movie} />
         </MovieLayout>
       </Animated.View>

@@ -5,6 +5,7 @@ import Empty from '../components/empty';
 import Separator from '../../sections/components/horizontal-separator';
 import Category from '../components/category';
 import Layout from '../components/category-list-layout';
+import Loading from "../../sections/components/loading";
 import { connect } from 'react-redux';
 
 
@@ -17,26 +18,25 @@ function mapStateToProps(state) {
 
 class CategoryList extends Component {
   keyExtractor = (item) => item.id.toString();
-  renderEmpty = () => <Empty text='No hay sugerencias :(' />;
+  renderEmpty = () => <Loading />;
   itemSerator = () => <Separator color='red' />;
   viewCategory = (item) => {
     this.props.dispatch(
       NavigationActions.navigate({
-        routeName: 'Category',
+        routeName: "Category",
         params: {
-          genre: item.genres[0]
-        }
-
+          genre: item.genres[0],
+        },
       })
-      
-      )
-  }
+    );
+  };
   renderItem = ({ item }) => {
     return (
       <Category
         {...item}
         onPress={() => {
-          this.viewCategory(item) }}
+          this.viewCategory(item);
+        }}
       />
     );
   };

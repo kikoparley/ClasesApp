@@ -1,16 +1,10 @@
 import React from 'react';
-import {
-  View,
-  Text,
-  Image,
-  StyleSheet,
-  SafeAreaView,
-} from 'react-native';
+import { View, Text, Image, StyleSheet, SafeAreaView, Platform, StatusBar } from "react-native";
+
 
 function Header(props) {
   return (
-    <View>
-      <SafeAreaView style={styles.statusBar}>
+       <SafeAreaView style={styles.statusBar}>
         <View style={styles.container}>
           {/* <Text>Diamante School</Text> */}
           <Image
@@ -22,7 +16,6 @@ function Header(props) {
           </View>
         </View>
       </SafeAreaView>
-    </View>
   )
 }
 
@@ -37,6 +30,7 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
   },
   container: {
+    paddingTop: Platform.OS === "ios" ? 0 : StatusBar.currentHeight,
     paddingVertical: 10,
     paddingHorizontal: 10,
     flexDirection: "row",
