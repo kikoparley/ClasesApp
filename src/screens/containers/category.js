@@ -6,9 +6,21 @@ import Separator from "../../videos/components/vertical-separator";
 import Suggestion from "../../videos/components/suggestion";
 import { connect } from "react-redux";
 import { NavigationActions } from "react-navigation";
+import Header from "../../sections/components/header";
+import Close from "../../sections/components/close";
 
 function mapStateToProps(state) {
+  
   return {
+    header: (
+      <Header>
+        <Close
+          onPress={() => {
+            navigation.goBack();
+          }}
+        />
+      </Header>
+    ),
     list: state.videos.categoryList,
   };
 }

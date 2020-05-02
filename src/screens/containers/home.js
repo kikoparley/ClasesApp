@@ -7,6 +7,7 @@ import SuggestionList from "../../videos/containers/suggestion-list";
 import CategoryList from "../../videos/containers/category-list.js";
 import Movie from "../../screens/containers/movie";
 import Search from "../../sections/containers/search";
+
 class Home extends Component {
   static navigationOptions = () => {
     return {

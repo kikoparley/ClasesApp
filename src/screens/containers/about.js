@@ -1,31 +1,51 @@
-import React, { Component } from "react";
-import { View, Text, StyleSheet, Image, StatusBar } from "react-native";
+import React, { Component, Fragment } from "react";
+import { View, StyleSheet, Image, StatusBar, Button } from "react-native";
+ import Header from "../../sections/components/header";
+// import {Header} from 'react-native-elements'
+import { Avatar, Badge, ListItem, Text } from "react-native-elements";
+import { connect } from "react-redux";
+
 
 class About extends Component {
-    componentDidMount(){
-        this.props.navigation.addListener('didFocus',() => {
-         StatusBar.setBarStyle('light-content')   
-        //  StatusBar.setBackgroundColor("white"); Android  
-        })
-
-    }
+  handleLogout = () => {
+    this.props.dispatch({
+      type: "REMOVE_USER",
+    });
+    this.props.navigation.navigate("Loading"); //Loading o Login
+  };
+  componentDidMount() {
+    this.props.navigation.addListener("didFocus", () => {
+      StatusBar.setBarStyle("light-content");
+      //  StatusBar.setBackgroundColor("white"); Android
+    });
+  }
 
   render() {
     return (
-      <View style={styles.container}>
-        <Image
-          source={{
-            uri:
-              "https://static.platzi.com/media/achievements/badge-reactnative-9c23a814-e9c3-4041-afbd-ff8083fbf32f.png",
-          }}
-          style={styles.logo}
-        />
-        <Text style={styles.text}>
-          Diamante es  una aplicación educativa para enseñar desde una app
-        </Text>
-        <Text style={styles.text}>@Alexfrnndz</Text>
-        <Text style={styles.text}>2020</Text>
-      </View>
+      <Fragment>
+        <Header />
+        <View style={styles.container}>
+          <Text style={styles.text} h1>
+            {this.props.user.username}
+          </Text>
+          <Avatar
+            size='large'
+            rounded
+            source={{
+              uri: "https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg",
+            }}
+          />
+          <Badge status='success' />
+          <ListItem
+            key={1}
+            title={this.props.user.username}
+            subtitle='Promedio= 4.5'
+            badge={{ value: "3°", textStyle: { color: "white" }, containerStyle: { marginTop: -20 } }}
+          />
+          <Text>Usuario: {this.props.user.username}</Text>
+          <Button title='Cerrar sesión' color='#1B56D0' onPress={this.handleLogout} />
+        </View>
+      </Fragment>
     );
   }
 }
@@ -33,15 +53,20 @@ class About extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 10,
-    justifyContent: "center",
+    padding: 1,
+    // justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#022c43",
+    // backgroundColor: "#022c43",
+  },
+  avatar: {
+    padding: 10,
+    // justifyContent: "center",
+    alignItems: "center",
   },
   text: {
     textAlign: "center",
     marginBottom: 5,
-    color: "white",
+    color: "black",
   },
   logo: {
     width: 80,
@@ -50,4 +75,11 @@ const styles = StyleSheet.create({
   },
 });
 
-export default About;
+function mapStateToProps(state) {
+  return {
+    user: state.user,
+  };
+}
+
+
+export default connect(mapStateToProps) (About);

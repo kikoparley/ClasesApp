@@ -9,7 +9,7 @@ class Login extends Component {
       type: "SET_USER",
       payload: {
         token,
-        username: "Alexander", //this.state.username
+        username: "Alexander A. Fernández V", //this.state.username
       },
     });
     this.props.navigation.navigate('Loading');

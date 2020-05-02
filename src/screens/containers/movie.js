@@ -5,7 +5,7 @@ import Header from "../../sections/components/header";
 import Close from "../../sections/components/close";
 import { connect } from "react-redux";
 import Details from "../../videos/components/details";
-import { Animated } from "react-native";
+import { Animated, ScrollView } from "react-native";
 
 class Movie extends Component {
   state = {
@@ -45,10 +45,12 @@ class Movie extends Component {
           flex: 1,
           opacity: this.state.opacity,
         }}>
+        <ScrollView>
         <MovieLayout>
           {/* <Player /> */}
           <Details {...this.props.movie} />
         </MovieLayout>
+           </ScrollView>
       </Animated.View>
     );
   }

@@ -44,14 +44,14 @@ const TabNavigator = createBottomTabNavigator(
       screen: Main,
       navigationOptions: {
         title: "inicio",
-        tabBarIcon: <FontAwesome name={"home"} size={24 }/>,
+        tabBarIcon: <FontAwesome name={"home"} size={24} />,
       },
     },
     About: {
       screen: About,
       navigationOptions: {
-        title: "Nosotros",
-        tabBarIcon: <FontAwesome name={"building"} size={24} />,
+        title: "Perfil",
+        tabBarIcon: <FontAwesome name={"user"} size={24} />,
       },
     },
     Lucky: {
@@ -59,13 +59,6 @@ const TabNavigator = createBottomTabNavigator(
       navigationOptions: {
         title: "Busqueda",
         tabBarIcon: <FontAwesome name={"search"} size={24} />,
-      },
-    },
-    Profile: {
-      screen: Profile,
-      navigationOptions: {
-        title: "Perfil",
-        tabBarIcon: <FontAwesome name={"user"} size={24} />,
       },
     },
   },
@@ -98,64 +91,63 @@ const WithModal = createStackNavigator(
 );
 
 
-const DrawerNavigator = createDrawerNavigator(
-  {
-    Main: {
-      screen: WithModal,
-      navigationOptions: {
-        title: "inicio",
-        tabBarIcon: <FontAwesome name={"home"} size={24} />,
-      },
-    },
-    Sobre: {
-      screen: About,
-      navigationOptions: {
-        title: "Nosotros",
-        tabBarIcon: <FontAwesome name={"building"} size={24} />,
-      },
-    },
-    suerte: {
-      screen: Lucky,
-      navigationOptions: {
-        title: "Nosotros",
-        tabBarIcon: <FontAwesome name={"search"} size={24} />,
-      },
-    },
-  },
-  {
-    drawerWidth: 200,
-    drawerBackgroundColor: "#f6f6f6",
-    contentComponent: Drawer,
-    contentOptions: {
-      activeBackgroundColor: "#7aba2f",
-      activeTintColor: "white",
-      inactiveTintColor: "#828282",
-      inactiveBackgroundColor: "white",
-      itemStyle: {
-        borderBottomWidth: 0.5,
-        borderBottomColor: "rgba(0,0,0,.05)",
-      },
-      labelStyle: {
-        marginHorizontal:20,
-      },
-      iconContainerStyle:{
-        marginHorizontal:5, 
-      }
-    },
+// const DrawerNavigator = createDrawerNavigator(
+//   {
+//     Main: {
+//       screen: WithModal,
+//       navigationOptions: {
+//         title: "inicio",
+//         tabBarIcon: <FontAwesome name={"home"} size={24} />,
+//       },
+//     },
+//     Sobre: {
+//       screen: About,
+//       navigationOptions: {
+//         title: "Nosotros",
+//         tabBarIcon: <FontAwesome name={"building"} size={24} />,
+//       },
+//     },
+//     suerte: {
+//       screen: Lucky,
+//       navigationOptions: {
+//         title: "Nosotros",
+//         tabBarIcon: <FontAwesome name={"search"} size={24} />,
+//       },
+//     },
+//   },
+//   {
+//     drawerWidth: 200,
+//     drawerBackgroundColor: "#f6f6f6",
+//     contentComponent: Drawer,
+//     contentOptions: {
+//       activeBackgroundColor: "#7aba2f",
+//       activeTintColor: "white",
+//       inactiveTintColor: "#828282",
+//       inactiveBackgroundColor: "white",
+//       itemStyle: {
+//         borderBottomWidth: 0.5,
+//         borderBottomColor: "rgba(0,0,0,.05)",
+//       },
+//       labelStyle: {
+//         marginHorizontal:20,
+//       },
+//       iconContainerStyle:{
+//         marginHorizontal:5, 
+//       }
+//     },
       
-  }
-);
+//   }
+// );
 
 const SwitchNavigator = createSwitchNavigator(
   {
-    App: DrawerNavigator,
+    App: WithModal,
     Login: Login,
     Loading: Loading,
   },
   {
     initialRouteName: "Loading",
-  },
-  
+  }
 );
 
 

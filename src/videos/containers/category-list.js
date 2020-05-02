@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { NavigationActions } from "react-navigation";
 import {View, FlatList} from 'react-native';
-import Empty from '../components/empty';
+// import Empty from '../components/empty';
 import Separator from '../../sections/components/horizontal-separator';
 import Category from '../components/category';
 import Layout from '../components/category-list-layout';
